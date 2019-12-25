@@ -1,31 +1,22 @@
 //
-//  StartViewController.swift
+//  ProfileViewController.swift
 //  Matkon
 //
-//  Created by Niv Ohavi on 22/12/2019.
+//  Created by Niv Ohavi on 25/12/2019.
 //  Copyright © 2019 Niv Ohavi. All rights reserved.
 //
 
 import UIKit
 
-class StartViewController: UINavigationController {
+class ProfileViewController: UIViewController {
 
-    
-    @IBAction func loginButton(_ sender: Any) {
-        performSegue(withIdentifier: "StartToLogin", sender: sender)
-    }
-    
-    @IBAction func signUpButton(_ sender: Any) {
-        performSegue(withIdentifier: "StartToSignUp", sender: sender)
-
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
 
         // Do any additional setup after loading the view.
+
     }
-    
 
     /*
     // MARK: - Navigation
