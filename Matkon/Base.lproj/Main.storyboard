@@ -138,7 +138,7 @@
             </objects>
             <point key="canvasLocation" x="4777" y="-1383"/>
         </scene>
-        <!--Feed-->
+        <!--Categories-->
         <scene sceneID="J5H-y8-tSb">
             <objects>
                 <viewController id="to1-0B-Od0" customClass="FeedViewController" customModule="Matkon" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,12 +148,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="maC-pW-vDs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" image="house" catalog="system" id="nom-wi-GTl"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="house" catalog="system" id="nom-wi-GTl"/>
                     <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NW6-KM-4Yo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5768" y="-1981"/>
+            <point key="canvasLocation" x="5766.666666666667" y="-1981.4732142857142"/>
         </scene>
         <!--Profile-->
         <scene sceneID="2OX-K8-mTV">
@@ -175,6 +175,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phf-KP-ctw">
+                                <rect key="frame" x="183" y="733" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="u7Y-5O-a22" eventType="touchUpInside" id="K2K-cg-D6s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="LOp-m0-oYZ"/>
@@ -332,6 +340,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="h9O-jY-B2a"/>
+        <segue reference="lBL-YK-LlK"/>
     </inferredMetricsTieBreakers>
 </document>
