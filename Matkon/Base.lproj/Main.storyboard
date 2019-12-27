@@ -121,17 +121,18 @@
             </objects>
             <point key="canvasLocation" x="1943" y="-1981"/>
         </scene>
-        <!--My Recepies-->
+        <!--My Recipes-->
         <scene sceneID="I9f-Kc-1dP">
             <objects>
-                <viewController id="Q8b-es-9Lg" sceneMemberID="viewController">
+                <viewController id="Q8b-es-9Lg" customClass="MyRecipesViewController" customModule="Matkon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UkR-3m-Enb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="f0q-o3-cFg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Recepies" image="flame" catalog="system" id="cDZ-lx-XzB"/>
+                    <tabBarItem key="tabBarItem" title="My Recipes" image="flame" catalog="system" id="cDZ-lx-XzB"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SPb-UY-9PK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +141,7 @@
         <!--Feed-->
         <scene sceneID="J5H-y8-tSb">
             <objects>
-                <viewController id="to1-0B-Od0" customClass="HomeViewController" customModule="Matkon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="to1-0B-Od0" customClass="FeedViewController" customModule="Matkon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GTl-RX-PeX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,6 +149,7 @@
                         <viewLayoutGuide key="safeArea" id="maC-pW-vDs"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="house" catalog="system" id="nom-wi-GTl"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NW6-KM-4Yo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -160,15 +162,32 @@
                     <view key="view" contentMode="scaleToFill" id="Qsp-hO-CaE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="iOSBlue"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vAX-UK-Q8b">
+                                <rect key="frame" x="87" y="103" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="iOSBlue"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userEmail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2A-B8-LdU">
+                                <rect key="frame" x="37" y="269" width="340" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="LOp-m0-oYZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="pyK-kB-Xbf"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="userEmail" destination="R2A-B8-LdU" id="v8o-xo-cIx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ibc-UF-mZS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4777" y="-2644"/>
+            <point key="canvasLocation" x="4776.811594202899" y="-2644.4196428571427"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="M3e-hh-Vhv">
@@ -294,7 +313,7 @@
                         <outlet property="indicatorView" destination="UJO-r3-EC7" id="QFO-91-jzW"/>
                         <outlet property="password" destination="k9c-da-793" id="W3y-pY-d8N"/>
                         <outlet property="passwordConfirm" destination="qdY-0s-BYf" id="wFE-d2-sGN"/>
-                        <segue destination="ylK-TI-AjY" kind="show" identifier="StartToSignUp" id="lBL-YK-LlK"/>
+                        <segue destination="ylK-TI-AjY" kind="show" identifier="SignUpToLogin" id="lBL-YK-LlK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5q6-tb-gr4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -307,11 +326,12 @@
         <image name="flame" catalog="system" width="54" height="64"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="person" catalog="system" width="64" height="58"/>
+        <image name="person.circle" catalog="system" width="64" height="60"/>
         <namedColor name="iOSBlue">
             <color red="0.25882352941176473" green="0.52156862745098043" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lBL-YK-LlK"/>
+        <segue reference="h9O-jY-B2a"/>
     </inferredMetricsTieBreakers>
 </document>

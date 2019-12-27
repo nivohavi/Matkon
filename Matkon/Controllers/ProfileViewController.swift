@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var userEmail: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-
         // Do any additional setup after loading the view.
+        let user = Auth.auth().currentUser
+        print(user?.email)
+        self.userEmail.text = user?.email
 
     }
 

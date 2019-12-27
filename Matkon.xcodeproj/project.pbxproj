@@ -10,6 +10,8 @@
 		78EFB98B15134D2F15BDCB36 /* Pods_Matkon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC80B943A9A6B6249F5B354 /* Pods_Matkon.framework */; };
 		9F33048423B3DC60006AC331 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33048323B3DC60006AC331 /* ProfileViewController.swift */; };
 		9F33048823B3E063006AC331 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33048723B3E063006AC331 /* TabBarViewController.swift */; };
+		9F33048A23B3EB25006AC331 /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33048923B3EB25006AC331 /* MyRecipesViewController.swift */; };
+		9F33048E23B3F721006AC331 /* 3R7s.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9F33048D23B3F721006AC331 /* 3R7s.gif */; };
 		9FB2AD4723AFF23800B8B075 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */; };
 		9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */; };
 		9FB2AD4E23AFF23800B8B075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4C23AFF23800B8B075 /* Main.storyboard */; };
@@ -20,7 +22,7 @@
 		9FB2AD7823AFF50D00B8B075 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD7723AFF50D00B8B075 /* StartViewController.swift */; };
 		9FB2AD7A23AFF52200B8B075 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD7923AFF52200B8B075 /* LoginViewController.swift */; };
 		9FB2AD7C23AFF52D00B8B075 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD7B23AFF52D00B8B075 /* SignUpViewController.swift */; };
-		9FB2AD7E23AFF53E00B8B075 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD7D23AFF53E00B8B075 /* HomeViewController.swift */; };
+		9FB2AD7E23AFF53E00B8B075 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD7D23AFF53E00B8B075 /* FeedViewController.swift */; };
 		9FB2AD8323B0013900B8B075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2AD8223B0013900B8B075 /* GoogleService-Info.plist */; };
 		AA3B929EE408D2929C89719E /* Pods_Matkon_MatkonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B7F1C8A75B46F7C74BD347 /* Pods_Matkon_MatkonUITests.framework */; };
 		FBFE5346B603559D213878DD /* Pods_MatkonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424E1EE19AA35B1B550E3967 /* Pods_MatkonTests.framework */; };
@@ -54,6 +56,9 @@
 		99EEA7BFDB94205E9A9C9E12 /* Pods-Matkon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Matkon.debug.xcconfig"; path = "Target Support Files/Pods-Matkon/Pods-Matkon.debug.xcconfig"; sourceTree = "<group>"; };
 		9F33048323B3DC60006AC331 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9F33048723B3E063006AC331 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		9F33048923B3EB25006AC331 /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
+		9F33048D23B3F721006AC331 /* 3R7s.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 3R7s.gif; path = ../../../../Downloads/3R7s.gif; sourceTree = "<group>"; };
+		9F33049123B40193006AC331 /* 3R7s.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3R7s.gif; sourceTree = "<group>"; };
 		9FB2AD4323AFF23800B8B075 /* Matkon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matkon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +75,7 @@
 		9FB2AD7723AFF50D00B8B075 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		9FB2AD7923AFF52200B8B075 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9FB2AD7B23AFF52D00B8B075 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		9FB2AD7D23AFF53E00B8B075 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9FB2AD7D23AFF53E00B8B075 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		9FB2AD8223B0013900B8B075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CB54125A7BD4484564FDA6D4 /* Pods-Matkon-MatkonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Matkon-MatkonUITests.debug.xcconfig"; path = "Target Support Files/Pods-Matkon-MatkonUITests/Pods-Matkon-MatkonUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +164,7 @@
 				9FB2AD5123AFF23900B8B075 /* LaunchScreen.storyboard */,
 				9FB2AD5423AFF23900B8B075 /* Info.plist */,
 				9FB2AD8223B0013900B8B075 /* GoogleService-Info.plist */,
+				9F33048D23B3F721006AC331 /* 3R7s.gif */,
 			);
 			path = Matkon;
 			sourceTree = "<group>";
@@ -184,12 +190,14 @@
 		9FB2AD7623AFF3F400B8B075 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9F33049123B40193006AC331 /* 3R7s.gif */,
 				9FB2AD7723AFF50D00B8B075 /* StartViewController.swift */,
 				9FB2AD7923AFF52200B8B075 /* LoginViewController.swift */,
 				9FB2AD7B23AFF52D00B8B075 /* SignUpViewController.swift */,
-				9FB2AD7D23AFF53E00B8B075 /* HomeViewController.swift */,
+				9FB2AD7D23AFF53E00B8B075 /* FeedViewController.swift */,
 				9F33048323B3DC60006AC331 /* ProfileViewController.swift */,
 				9F33048723B3E063006AC331 /* TabBarViewController.swift */,
+				9F33048923B3EB25006AC331 /* MyRecipesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +314,7 @@
 				9FB2AD5323AFF23900B8B075 /* LaunchScreen.storyboard in Resources */,
 				9FB2AD8323B0013900B8B075 /* GoogleService-Info.plist in Resources */,
 				9FB2AD5023AFF23900B8B075 /* Assets.xcassets in Resources */,
+				9F33048E23B3F721006AC331 /* 3R7s.gif in Resources */,
 				9FB2AD4E23AFF23800B8B075 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,7 +449,8 @@
 				9FB2AD4723AFF23800B8B075 /* AppDelegate.swift in Sources */,
 				9FB2AD7A23AFF52200B8B075 /* LoginViewController.swift in Sources */,
 				9F33048423B3DC60006AC331 /* ProfileViewController.swift in Sources */,
-				9FB2AD7E23AFF53E00B8B075 /* HomeViewController.swift in Sources */,
+				9F33048A23B3EB25006AC331 /* MyRecipesViewController.swift in Sources */,
+				9FB2AD7E23AFF53E00B8B075 /* FeedViewController.swift in Sources */,
 				9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

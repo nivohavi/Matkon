@@ -22,6 +22,8 @@ class StartViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //let gif = UIImage.gif(url: "3R7s.gif")
+        //self.logoGIF.image = gif
 
         // Do any additional setup after loading the view.
     }

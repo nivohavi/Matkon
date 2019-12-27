@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
                 if error == nil {
                     self.indicatorView.startAnimating()
-                    self.performSegue(withIdentifier: "SignupToLogin", sender: self)
+                    self.performSegue(withIdentifier: "SignUpToLogin", sender: self)
                 }
                 else{
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -51,6 +51,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.indicatorView.hidesWhenStopped = true
+
     }
     
     
