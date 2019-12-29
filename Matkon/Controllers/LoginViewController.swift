@@ -8,12 +8,16 @@
 
 import UIKit
 
+
 class LoginViewController: UIViewController {
     
     let fbAuth = ModelFirebaseAuth.instance;
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     
     @IBAction func loginAction(_ sender: Any)
     {
@@ -28,6 +32,7 @@ class LoginViewController: UIViewController {
           }
           else {
                 self.performSegue(withIdentifier: "LoginToHome", sender: self)
+            print("Logged In Successfully !!!")
 
             }
         }
@@ -37,8 +42,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        password.isSecureTextEntry = true
         indicatorView.hidesWhenStopped = true
+        //password.isSecureTextEntry = true
+        //passwordTextField.isSecureTextEntry = true
+        //emailTextField.placeholder = "Email"
+        //passwordTextField.placeholder = "Password"
     }
     
     
