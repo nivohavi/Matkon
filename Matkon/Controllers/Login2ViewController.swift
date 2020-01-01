@@ -44,12 +44,11 @@ class Login2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //password.isSecureTextEntry = true
-        //passwordTextField.isSecureTextEntry = true
-        //emailTextField.placeholder = "Email"
-        //emailTextField.textAlignment = .center
-        //passwordTextField.placeholder = "Password"
-        //passwordTextField.textAlignment = .center
+        passwordTextField.isSecureTextEntry = true
+        emailTextField.placeholder = "Email"
+        emailTextField.textAlignment = .center
+        passwordTextField.placeholder = "Password"
+        passwordTextField.textAlignment = .center
 
 
         // Do any additional setup after loading the view.

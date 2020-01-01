@@ -17,6 +17,9 @@
 		9F3304A123B7C33D006AC331 /* Login2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304A023B7C33D006AC331 /* Login2ViewController.swift */; };
 		9F3304A523B91B63006AC331 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304A423B91B63006AC331 /* SignUp2ViewController.swift */; };
 		9F3304A723B93B58006AC331 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304A623B93B58006AC331 /* TestViewController.swift */; };
+		9F3304A923BA6B81006AC331 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304A823BA6B81006AC331 /* CategoriesTableViewController.swift */; };
+		9F3304AB23BA6C43006AC331 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304AA23BA6C43006AC331 /* Category.swift */; };
+		9F3304AD23BA71E3006AC331 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304AC23BA71E3006AC331 /* CategoryTableViewCell.swift */; };
 		9FB2AD4723AFF23800B8B075 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */; };
 		9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */; };
 		9FB2AD4E23AFF23800B8B075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4C23AFF23800B8B075 /* Main.storyboard */; };
@@ -69,6 +72,9 @@
 		9F3304A023B7C33D006AC331 /* Login2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login2ViewController.swift; sourceTree = "<group>"; };
 		9F3304A423B91B63006AC331 /* SignUp2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2ViewController.swift; sourceTree = "<group>"; };
 		9F3304A623B93B58006AC331 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		9F3304A823BA6B81006AC331 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		9F3304AA23BA6C43006AC331 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9F3304AC23BA71E3006AC331 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		9FB2AD4323AFF23800B8B075 /* Matkon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matkon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				9F33049323B62088006AC331 /* ModelFirebaseAuth.swift */,
+				9F3304AA23BA6C43006AC331 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +236,8 @@
 				9F3304A023B7C33D006AC331 /* Login2ViewController.swift */,
 				9F3304A423B91B63006AC331 /* SignUp2ViewController.swift */,
 				9F3304A623B93B58006AC331 /* TestViewController.swift */,
+				9F3304A823BA6B81006AC331 /* CategoriesTableViewController.swift */,
+				9F3304AC23BA71E3006AC331 /* CategoryTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -481,13 +490,16 @@
 				9F33049F23B7C19B006AC331 /* InitialViewController.swift in Sources */,
 				9FB2AD7823AFF50D00B8B075 /* StartViewController.swift in Sources */,
 				9FB2AD4723AFF23800B8B075 /* AppDelegate.swift in Sources */,
+				9F3304AB23BA6C43006AC331 /* Category.swift in Sources */,
 				9F33049423B62088006AC331 /* ModelFirebaseAuth.swift in Sources */,
 				9FB2AD7A23AFF52200B8B075 /* LoginViewController.swift in Sources */,
+				9F3304A923BA6B81006AC331 /* CategoriesTableViewController.swift in Sources */,
 				9F33048423B3DC60006AC331 /* ProfileViewController.swift in Sources */,
 				9F33048A23B3EB25006AC331 /* MyRecipesViewController.swift in Sources */,
 				9FB2AD7E23AFF53E00B8B075 /* FeedViewController.swift in Sources */,
 				9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */,
 				9F3304A123B7C33D006AC331 /* Login2ViewController.swift in Sources */,
+				9F3304AD23BA71E3006AC331 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

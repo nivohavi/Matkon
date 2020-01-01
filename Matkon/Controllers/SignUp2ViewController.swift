@@ -59,6 +59,14 @@ class SignUp2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        email.placeholder = "Email"
+        email.textAlignment = .center
+        password.placeholder = "Password"
+        password.isSecureTextEntry = true
+        password.textAlignment = .center
+        passwordConfirm.placeholder = "Password"
+        passwordConfirm.isSecureTextEntry = true
+        passwordConfirm.textAlignment = .center
         // Do any additional setup after loading the view.
     }
     

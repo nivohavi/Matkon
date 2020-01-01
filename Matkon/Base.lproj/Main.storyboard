@@ -320,23 +320,6 @@
             </objects>
             <point key="canvasLocation" x="6351" y="-2433"/>
         </scene>
-        <!--Categories-->
-        <scene sceneID="J5H-y8-tSb">
-            <objects>
-                <viewController storyboardIdentifier="FeedViewController" id="to1-0B-Od0" customClass="FeedViewController" customModule="Matkon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GTl-RX-PeX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="maC-pW-vDs"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Categories" image="house" catalog="system" id="nom-wi-GTl"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NW6-KM-4Yo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6351" y="-3090"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="2OX-K8-mTV">
             <objects>
@@ -348,7 +331,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vAX-UK-Q8b">
                                 <rect key="frame" x="87" y="103" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" name="iOSBlue"/>
+                                <color key="tintColor" name="iOSOrange"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userEmail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2A-B8-LdU">
                                 <rect key="frame" x="37" y="269" width="340" height="36"/>
@@ -361,8 +344,13 @@
                                 <rect key="frame" x="183" y="733" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcM-bK-wXn">
+                                <rect key="frame" x="342" y="28" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
                                 <connections>
-                                    <action selector="logout:" destination="u7Y-5O-a22" eventType="touchUpInside" id="K2K-cg-D6s"/>
+                                    <action selector="logout:" destination="u7Y-5O-a22" eventType="touchUpInside" id="1sn-qg-x9t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -388,10 +376,11 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XyU-TH-tBq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="iOSBlue"/>
+                        <color key="backgroundColor" name="iOSOrange"/>
+                        <color key="tintColor" name="iOSOrange"/>
                     </tabBar>
                     <connections>
-                        <segue destination="to1-0B-Od0" kind="relationship" relationship="viewControllers" id="y8L-AW-00V"/>
+                        <segue destination="EhM-k1-ZOj" kind="relationship" relationship="viewControllers" id="y8L-AW-00V"/>
                         <segue destination="Q8b-es-9Lg" kind="relationship" relationship="viewControllers" id="dKO-gQ-0UH"/>
                         <segue destination="u7Y-5O-a22" kind="relationship" relationship="viewControllers" id="fqU-aK-CPr"/>
                     </connections>
@@ -399,171 +388,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ape-y6-lCR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4746" y="-3032"/>
-        </scene>
-        <!--Signup-->
-        <scene sceneID="Dut-gi-wWA">
-            <objects>
-                <viewController id="mU7-wc-BeQ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qDb-uZ-xSb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="7Hw-GC-fVU">
-                                <rect key="frame" x="104" y="87" width="206" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHt-at-uh6">
-                                <rect key="frame" x="36" y="256" width="54" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LM6-Nz-vh1">
-                                <rect key="frame" x="36" y="292" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbR-b8-KIF">
-                                <rect key="frame" x="36" y="334" width="96" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jcs-qQ-voA">
-                                <rect key="frame" x="36" y="370" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBJ-8R-W6c">
-                                <rect key="frame" x="36" y="412" width="181" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0vm-RE-ZkX">
-                                <rect key="frame" x="36" y="448" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqE-I4-VOS">
-                                <rect key="frame" x="36" y="554" width="343" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <state key="normal" title="Signup">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginAction:" destination="ylK-TI-AjY" eventType="touchUpInside" id="QkN-vQ-hSW"/>
-                                    <action selector="signUpAction:" destination="Lvy-A6-hLU" eventType="touchUpInside" id="wYB-MV-VOI"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Mrq-HH-fuC">
-                                <rect key="frame" x="197" y="511" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" name="iOSBlue"/>
-                        <viewLayoutGuide key="safeArea" id="KLF-kL-Ecc"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Signup" image="plus" catalog="system" id="gg8-p8-sBv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cFJ-Ql-ath" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1399" y="-1511"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="DUP-h6-dKV">
-            <objects>
-                <viewController id="sB1-2l-jgm" customClass="LoginViewController" customModule="Matkon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="emv-dw-VpA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ntg-IC-nmL">
-                                <rect key="frame" x="104" y="78" width="206" height="144"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afK-ka-KE9">
-                                <rect key="frame" x="36" y="247" width="54" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="px8-3c-lGr">
-                                <rect key="frame" x="36" y="283" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sm-An-ygI">
-                                <rect key="frame" x="36" y="325" width="96" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFq-Ue-Sl2">
-                                <rect key="frame" x="36" y="361" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyR-WS-nQC">
-                                <rect key="frame" x="36" y="464" width="343" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginAction:" destination="sB1-2l-jgm" eventType="touchUpInside" id="Wus-po-eqg"/>
-                                    <action selector="loginAction:" destination="ylK-TI-AjY" eventType="touchUpInside" id="fsQ-PE-dJ9"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="lcp-db-7Uf">
-                                <rect key="frame" x="189" y="411" width="36" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" name="iOSBlue"/>
-                        <viewLayoutGuide key="safeArea" id="ZGw-0F-THk"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Login" image="login_icon_onboard" id="NlX-u6-20A"/>
-                    <navigationItem key="navigationItem" id="IIh-DD-hki"/>
-                    <connections>
-                        <outlet property="email" destination="px8-3c-lGr" id="uMp-E0-P9q"/>
-                        <outlet property="indicatorView" destination="lcp-db-7Uf" id="h9R-lZ-yb5"/>
-                        <outlet property="password" destination="oFq-Ue-Sl2" id="4FP-sb-g3Y"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fI9-yO-LMz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1400" y="-2159.5982142857142"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Slo-bO-sof">
-            <objects>
-                <tabBarController id="xIl-oM-nIT" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6cD-dc-ARJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="sB1-2l-jgm" kind="relationship" relationship="viewControllers" id="0ve-Fa-ZWe"/>
-                        <segue destination="mU7-wc-BeQ" kind="relationship" relationship="viewControllers" id="Ipz-hp-ly3"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LdS-E8-dR8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2314" y="-1833"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="MSw-97-uQH">
@@ -657,18 +481,79 @@
             </objects>
             <point key="canvasLocation" x="651" y="-1454"/>
         </scene>
+        <!--Categories-->
+        <scene sceneID="SzO-mt-r5q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EhM-k1-ZOj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Categories" image="house" catalog="system" id="nom-wi-GTl"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZWE-Ke-Wiz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jsU-vk-x6b" kind="relationship" relationship="rootViewController" id="PXD-NY-i3O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p2k-cd-TDI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6350.7246376811599" y="-3090.489130434783"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Rqj-hM-Gyu">
+            <objects>
+                <tableViewController id="jsU-vk-x6b" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Gv-DH-lIU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="68" id="eYv-3t-5YG" customClass="CategoryTableViewCell" customModule="Matkon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eYv-3t-5YG" id="N8H-1e-rbm">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R06-gj-alq">
+                                            <rect key="frame" x="29" y="24" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryName" destination="R06-gj-alq" id="GQv-sb-l9J"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jsU-vk-x6b" id="Dtr-qa-FYE"/>
+                            <outlet property="delegate" destination="jsU-vk-x6b" id="zO9-vK-Lab"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="oUX-VI-hrv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LYC-56-Ll0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7173.913043478261" y="-3090.489130434783"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="512" height="512"/>
         <image name="flame" catalog="system" width="54" height="64"/>
         <image name="food2" width="170.66667175292969" height="170.66667175292969"/>
         <image name="house" catalog="system" width="64" height="54"/>
-        <image name="login_icon_onboard" width="20" height="21"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
         <namedColor name="iOSBlue">
             <color red="0.25882352941176473" green="0.52156862745098043" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="iOSOrange">
+            <color red="1" green="0.55299997329711914" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>

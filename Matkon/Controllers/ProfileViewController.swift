@@ -36,9 +36,9 @@ class ProfileViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         // TBD - Firebase get current user details
-        //let user = Auth.auth().currentUser
-        //print(user?.email)
-        //self.userEmail.text = user?.email
+        let user = Auth.auth().currentUser
+        print(user?.email)
+        self.userEmail.text = user?.email
 
     }
 
