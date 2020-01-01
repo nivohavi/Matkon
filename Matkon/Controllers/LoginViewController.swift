@@ -7,45 +7,46 @@
 //
 
 import UIKit
-import FirebaseAuth
+
 
 class LoginViewController: UIViewController {
     
-    
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    let fbAuth = ModelFirebaseAuth.instance;
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     
     @IBAction func loginAction(_ sender: Any)
     {
         self.indicatorView.startAnimating()
-        Auth.auth().signIn(withEmail: email.text!, password: password.text!)
-        { (user, error) in
-            if error == nil
-            {
-                self.performSegue(withIdentifier: "LoginToHome", sender: self)
-            }
-            else
-            {
-                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+        fbAuth.signInFirebase(email: email.text!, password: password.text!) { (error: String?) in
+          if error != nil{
+                let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                
+
                 alertController.addAction(defaultAction)
                 self.present(alertController, animated: true, completion: nil)
-                self.indicatorView.stopAnimating()
+          }
+          else {
+                self.performSegue(withIdentifier: "LoginToHome", sender: self)
+            print("Logged In Successfully !!!")
+
             }
         }
+        self.indicatorView.stopAnimating()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView.hidesWhenStopped = true
-        
-        
-        // Do any additional setup after loading the view.
+        //password.isSecureTextEntry = true
+        //passwordTextField.isSecureTextEntry = true
+        //emailTextField.placeholder = "Email"
+        //passwordTextField.placeholder = "Password"
     }
     
     
