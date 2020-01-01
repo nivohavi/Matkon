@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>207772681559-2a282tdqhiifabeulfpaf6if8mno200c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.207772681559-2a282tdqhiifabeulfpaf6if8mno200c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAgVK7OTvHbF5CUCfEYrh14OQmxoqYASk4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>207772681559</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>app.Matkon</string>
+	<key>PROJECT_ID</key>
+	<string>matkon-5d8d7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>matkon-5d8d7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:207772681559:ios:4e06ee55eadd1a5abe2a12</string>
+	<key>DATABASE_URL</key>
+	<string>https://matkon-5d8d7.firebaseio.com</string>
+</dict>
+</plist>
