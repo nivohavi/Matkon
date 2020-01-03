@@ -17,7 +17,16 @@ class Login2ViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    //
+    // Back button - Action
+    //
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
+    //
+    // Login button - Action
+    //
     @IBAction func loginActionButton(_ sender: Any) {
         fbAuth.signInFirebase(email: emailTextField.text!, password: passwordTextField.text!) { (error: String?) in
           if error != nil{

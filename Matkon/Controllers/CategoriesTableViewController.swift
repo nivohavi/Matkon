@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoriesTableViewController: UITableViewController {
     
     var categories = [
-        Category(name: "Italian",img:"img"),
-        Category(name: "Mexican",img:"img"),
-        Category(name: "Israeli",img:"img"),
-        Category(name: "French",img:"img")
+        Category(name: "Italian", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png"),
+        Category(name: "Mexican", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png"),
+        Category(name: "Israeli", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png"),
+        Category(name: "French", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png")
     ]
 
     override func viewDidLoad() {
@@ -45,8 +46,10 @@ class CategoriesTableViewController: UITableViewController {
 
 
         // Configure the cell...
-        let st = categories[indexPath.row]
-        cell.categoryName.text = st.name
+        let categorie = categories[indexPath.row]
+        cell.categoryName?.text = categorie.name
+        cell.categoryImage.sd_setImage(with: URL(string: categorie.imgURL!), placeholderImage: UIImage(named: "placeholder.png"))
+
         return cell
     }
     

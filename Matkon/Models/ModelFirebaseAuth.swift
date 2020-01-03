@@ -13,8 +13,8 @@ import FirebaseAuth
 class ModelFirebaseAuth{
     static let instance = ModelFirebaseAuth()
     
+    // Singelton
     private init (){
-    
     }
     
     func signInFirebase(email: String,password: String, callback: @escaping (String?) -> ()) {

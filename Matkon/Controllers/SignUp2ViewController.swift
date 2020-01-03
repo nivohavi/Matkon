@@ -27,6 +27,16 @@ class SignUp2ViewController: UIViewController {
     @IBOutlet weak var passwordConfirm: UITextField!
     
     
+    //
+    // Back button - Action
+    //
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //
+    // Signup button - Action
+    //
     @IBAction func signUpActionButton(_ sender: Any) {
                 if password.text != passwordConfirm.text {
 

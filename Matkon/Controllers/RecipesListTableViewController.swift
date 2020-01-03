@@ -8,10 +8,12 @@
 
 import UIKit
 
-class RecipesListTableViewController: UITableViewController {
 
-    @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var recipeImage: UIImageView!
+class RecipesListTableViewController: UITableViewController {
+    
+    //let fbDB = ModelFirebaseDB.instance;
+    var data = [Recipe]()
+
     
     var categories = [
         Category(name: "Italian", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png"),
@@ -23,7 +25,13 @@ class RecipesListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+            
+        ModelFirebaseDB.instance.getAllStudents { (_data:[Recipe]?) in
+            if (_data != nil) {
+                self.data = _data!;
+                self.tableView.reloadData();
+            }
+        };
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,23 +43,32 @@ class RecipesListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return data.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
         // Configure the cell...
+        
+        let cell:RecipeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as! RecipeTableViewCell
 
+        let recipe = data[indexPath.row]
+        cell.recipeName.text = recipe.name
+        cell.recipeDescription.text = recipe.recipeDescription
+        cell.recipeImage.sd_setImage(with: URL(string: recipe.imgURL!), placeholderImage: UIImage(named: "placeholder.png"))
+        
+        //cell.id = recipe.id
+        //cell.recipeImage.text = recipe.imgURL
+        ModelFirebaseDB.instance.test()
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
