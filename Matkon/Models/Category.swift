@@ -7,14 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 class Category {
     
+    var id: String?
     var name: String?
-    var img: String?
+    var imgURL: String?
     
-    init(name:String?, img:String?) {
+    init(name:String?, imgURL:String?) {
         self.name = name
-        self.img = img
+        self.imgURL = imgURL
+        
     }
 }

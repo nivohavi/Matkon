@@ -11,12 +11,11 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
-    let fbAuth = ModelFirebaseAuth.instance;
     @IBOutlet weak var userEmail: UILabel!
     
     
     @IBAction func logout(_ sender: Any) {
-        let error: String? = fbAuth.signOutFirebase()
+        let error: String? = ModelFirebaseAuth.instance.signOutFirebase()
         if(error == nil){
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initial = storyboard.instantiateInitialViewController()
@@ -33,12 +32,14 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        
+        let result = ModelFirebaseDB.instance.getCurrentUserInfo()
+        //self.navigationController?.isNavigationBarHidden = true
         
         // TBD - Firebase get current user details
-        let user = Auth.auth().currentUser
-        print(user?.email)
-        self.userEmail.text = user?.email
+        //let user = Auth.auth().currentUser
+        //print(user?.email)
+        //self.userEmail.text = user?.email
 
     }
 

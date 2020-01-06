@@ -11,15 +11,44 @@ import UIKit
 
 class Recipe {
     
-    var id: Int?
-    var name: String?
-    var Ingredients: [String?] = []
-    var imgURL: String?
+    var id:String = ""
+    var name: String = ""
+    var category: String = ""
+    var description: String = ""
+    var ingredientsJson: String = ""
+    var directions: String = ""
+    var imgURL: String = ""
     
-    init(id:Int,name:String?,Ingredients:[String?], imgURL:String?) {
+    init(id:String,name:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String) {
         self.id = id
         self.name = name
-        self.Ingredients = Ingredients
+        self.category = category
+        self.description = description
+        self.ingredientsJson = ingredientsJson
+        self.directions = directions
         self.imgURL = imgURL
+    }
+    
+    init(json:[String:String]){
+        self.id = json["id"]!;
+        self.name = json["name"]!;
+        self.category = json["category"]!;
+        self.description = json["description"]!;
+        self.ingredientsJson = json["ingredientsJson"]!;
+        self.directions = json["directions"]!;
+        self.imgURL = json["imgURL"]!;
+
+    }
+    
+    func toJson() -> [String:String] {
+        var json = [String:String]();
+        json["id"] = id
+        json["name"] = name
+        json["category"] = category
+        json["description"] = description
+        json["ingredientsJson"] = ingredientsJson
+        json["directions"] = directions
+        json["imgURL"] = imgURL
+        return json
     }
 }

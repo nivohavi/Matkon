@@ -13,8 +13,8 @@ import FirebaseAuth
 class ModelFirebaseAuth{
     static let instance = ModelFirebaseAuth()
     
+    // Singelton
     private init (){
-    
     }
     
     func signInFirebase(email: String,password: String, callback: @escaping (String?) -> ()) {
@@ -36,12 +36,20 @@ class ModelFirebaseAuth{
         return nil
     }
     
+    func getFIRUserID() -> String?{
+        return Auth.auth().currentUser?.uid
+    }
+    
     func createUserFirebase(email: String,password: String, callback: @escaping (String?) -> ()) {
       Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-        if(error == nil) {
+        if(error == nil)
+        {
             callback(nil)
         }
-        else{callback(error!.localizedDescription)}
+        else
+        {
+            callback(error!.localizedDescription)
+        }
       }
     }
 }

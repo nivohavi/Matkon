@@ -13,6 +13,7 @@ target 'Matkon' do
 	pod 'Firebase/Storage'
 	pod 'Firebase/Firestore'
 	pod 'SwiftyGif'
+	pod 'SDWebImage/Core'
   target 'MatkonTests' do
     inherit! :search_paths
     # Pods for testing
