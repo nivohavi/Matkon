@@ -31,32 +31,49 @@ class ModelFirebaseDB{
         })
     }
     
-    func getCurrentUserInfo() -> DatabaseReference{
-        var userRef: DatabaseReference?
-        if let user = Auth.auth().currentUser {
-            // 2
-            let rootRef = Database.database().reference()
-            // 3
-            userRef = rootRef.child("users").child(user.uid)
-            
-            // 4 read from database with userRef
-        }
-        return userRef!
-    }
-    
-    func test(){
-        if let user = Auth.auth().currentUser {
-            // 2
-            let rootRef = Database.database().reference()
-            // 3
-            let userRef = rootRef.child("users").child(user.uid)
+    func getCurrentUserInfo() -> ClassUser{
+        var userRef: ClassUser?
+        var username: String?
+        var ref: DatabaseReference!
+        let userID = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let firebaseDic = snapshot.value as? [String: AnyObject] // unwrap it since its an optional
+            {
+                username = firebaseDic["username"] as! String
+               let email = firebaseDic["email"] as! String
 
-            // 4 read from database with userRef
-        }
+            }
+            else
+            {
+              print("Error retrieving FrB data") // snapshot value is nil
+            }
+
+        })
+        //return userRef
+        return ClassUser(usersname: username)
+
+    }
+
+    func getRecipesByCategory(categoryToQuery: String?, callback: @escaping ([Recipe]?)->Void){
+        let db = Firestore.firestore()
+        db.collection("recipes").whereField("category", isEqualTo: categoryToQuery).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                callback(nil);
+            } else {
+                var data = [Recipe]();
+                for document in querySnapshot!.documents {
+                    data.append(Recipe(json: document.data()));
+                }
+                callback(data);
+            }
+        };
     }
     
+
     
-    func getAllStudents(callback: @escaping ([Recipe]?)->Void){
+    func getAllRecipes(callback: @escaping ([Recipe]?)->Void){
         let db = Firestore.firestore()
         db.collection("recipes").getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -72,31 +89,16 @@ class ModelFirebaseDB{
         };
     }
     
+    func registerNewUserToRealtimeDB(email:String?) -> Void{
+        let currentUserId = ModelFirebaseAuth.instance.getFIRUserID()
+        let userAttrs = ["email": email]
+        let ref = Database.database().reference().child("users").child(currentUserId!)
+        ref.setValue(userAttrs) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                return
+            }}
+    }
     
     
-//    func getCategorieRecipesList(callback: @escaping ([Recipe]?)->Void){
-//        let db = Firestore.firestore()
-//        db.collection("recipes").getDocuments { (querySnapshot, err) in
-//            if let err = err
-//            {
-//                print("Error getting documents: \(err)")
-//                callback(nil);
-//            }
-//            else
-//            {
-//                var data = [Recipe]();
-//                for document in querySnapshot!.documents
-//                {
-//                    let json = try? JSONSerialization.jsonObject(with: document.data(), options: [])
-//                    let documentCategorie = document.data()["categorie"]
-//                    let requestedCategorie = "German"
-//                    if let isEqual = (String(documentCategorie) == requestedCategorie)
-//                    {
-//                        data.append(Recipe(json: document.data()));
-//                    }
-//                }
-//                callback(data);
-//            }
-//        };
-//    }
 }

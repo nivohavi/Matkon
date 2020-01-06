@@ -34,6 +34,7 @@
 		9F3304C823BD3667006AC331 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304C723BD3667006AC331 /* IngredientTableViewCell.swift */; };
 		9F3304CA23BD391F006AC331 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304C923BD391F006AC331 /* Model.swift */; };
 		9F3304CC23BE45D7006AC331 /* CategoriesNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304CB23BE45D7006AC331 /* CategoriesNavigationViewController.swift */; };
+		9F3304D023BF7229006AC331 /* ClassUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304CF23BF7229006AC331 /* ClassUser.swift */; };
 		9FB2AD4723AFF23800B8B075 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */; };
 		9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */; };
 		9FB2AD4E23AFF23800B8B075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4C23AFF23800B8B075 /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		9F3304C723BD3667006AC331 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		9F3304C923BD391F006AC331 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9F3304CB23BE45D7006AC331 /* CategoriesNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesNavigationViewController.swift; sourceTree = "<group>"; };
+		9F3304CF23BF7229006AC331 /* ClassUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassUser.swift; path = /Users/niohavi/Documents/Matkon/Matkon/Matkon/Models/ClassUser.swift; sourceTree = "<absolute>"; };
 		9FB2AD4323AFF23800B8B075 /* Matkon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matkon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		9F33049223B61D75006AC331 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9F3304CF23BF7229006AC331 /* ClassUser.swift */,
 				9F33049323B62088006AC331 /* ModelFirebaseAuth.swift */,
 				9F3304AA23BA6C43006AC331 /* Category.swift */,
 				9F3304BB23BD10FA006AC331 /* Recipe.swift */,
@@ -547,6 +550,7 @@
 				9F3304C623BD326F006AC331 /* NewRecipeViewController.swift in Sources */,
 				9FB2AD7E23AFF53E00B8B075 /* FeedViewController.swift in Sources */,
 				9F3304CA23BD391F006AC331 /* Model.swift in Sources */,
+				9F3304D023BF7229006AC331 /* ClassUser.swift in Sources */,
 				9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */,
 				9F3304CC23BE45D7006AC331 /* CategoriesNavigationViewController.swift in Sources */,
 				9F3304C823BD3667006AC331 /* IngredientTableViewCell.swift in Sources */,

@@ -32,6 +32,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let result = ModelFirebaseDB.instance.getCurrentUserInfo()
         //self.navigationController?.isNavigationBarHidden = true
         
         // TBD - Firebase get current user details

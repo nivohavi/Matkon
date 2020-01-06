@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 
 
 
 class Login2ViewController: UIViewController {
     
-    let fbAuth = ModelFirebaseAuth.instance;
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -28,7 +28,7 @@ class Login2ViewController: UIViewController {
     // Login button - Action
     //
     @IBAction func loginActionButton(_ sender: Any) {
-        fbAuth.signInFirebase(email: emailTextField.text!, password: passwordTextField.text!) { (error: String?) in
+        ModelFirebaseAuth.instance.signInFirebase(email: emailTextField.text!, password: passwordTextField.text!) { (error: String?) in
           if error != nil{
                 let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -39,6 +39,11 @@ class Login2ViewController: UIViewController {
           else {
                 //self.performSegue(withIdentifier: "LoginToHome", sender: self)
             let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBarViewController")
+            
+            // Register User in FireBase Realtime Database
+            ModelFirebaseDB.instance.registerNewUserToRealtimeDB(email: self.emailTextField.text)
+            
+            
             
             // use back the old iOS 12 modal full screen style
             tabBarVC.modalPresentationStyle = .fullScreen
@@ -63,6 +68,10 @@ class Login2ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
 
     /*
     // MARK: - Navigation

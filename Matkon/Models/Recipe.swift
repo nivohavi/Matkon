@@ -13,25 +13,27 @@ class Recipe {
     
     var id: String?
     var name: String?
+    var category: String?
     var recipeDescription: String?
-    //var ingredientsCollectionRefId: String?
     var ingredientsJson: String?
-    var imgURL: String?
+    var photoUrl: String?
     
-    init(id:String,name:String?,recipeDescription:String?,ingredientsJson: String?, imgURL:String?) {
+    init(id:String,name:String?,category:String?,recipeDescription:String?,ingredientsJson: String?, photoUrl:String?) {
         self.id = id
         self.name = name
+        self.category = category
         self.recipeDescription = recipeDescription
         self.ingredientsJson = ingredientsJson
-        self.imgURL = imgURL
+        self.photoUrl = photoUrl
     }
     
     init(json:[String:Any]){
         self.id = json["id"] as? String;
         self.name = json["name"] as? String;
+        self.category = json["category"] as? String;
         self.recipeDescription = json["recipeDescription"] as? String;
         self.ingredientsJson = json["ingredientsJson"] as? String;
-        self.imgURL = json["imgURL"] as? String;
+        self.photoUrl = json["photoUrl"] as? String;
 
     }
     
@@ -39,9 +41,10 @@ class Recipe {
         var json = [String:String]();
         json["id"] = id
         json["name"] = name
+        json["category"] = category
         json["recipeDescription"] = name
         json["ingredientsJson"] = ingredientsJson
-        json["imgURL"] = imgURL
+        json["photoUrl"] = photoUrl
         return json
     }
 }

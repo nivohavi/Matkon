@@ -329,7 +329,7 @@
                                 <connections>
                                     <outlet property="categoryImage" destination="62e-fA-r0G" id="jWr-IS-qp0"/>
                                     <outlet property="categoryName" destination="P6x-2r-iFF" id="5M1-CC-k2c"/>
-                                    <segue destination="jHY-xV-XpC" kind="show" id="Ce0-kf-77A"/>
+                                    <segue destination="jHY-xV-XpC" kind="show" identifier="toRecipesList" id="Ce0-kf-77A"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
