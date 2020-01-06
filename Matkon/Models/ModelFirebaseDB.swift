@@ -64,7 +64,7 @@ class ModelFirebaseDB{
             } else {
                 var data = [Recipe]();
                 for document in querySnapshot!.documents {
-                    data.append(Recipe(json: document.data()));
+                    data.append(Recipe(json: document.data() as! [String : String]));
                 }
                 callback(data);
             }
@@ -82,7 +82,7 @@ class ModelFirebaseDB{
             } else {
                 var data = [Recipe]();
                 for document in querySnapshot!.documents {
-                    data.append(Recipe(json: document.data()));
+                    data.append(Recipe(json: document.data() as! [String : String]));
                 }
                 callback(data);
             }

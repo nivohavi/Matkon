@@ -11,29 +11,32 @@ import UIKit
 
 class Recipe {
     
-    var id: String?
-    var name: String?
-    var category: String?
-    var recipeDescription: String?
-    var ingredientsJson: String?
-    var photoUrl: String?
+    var id:String = ""
+    var name: String = ""
+    var category: String = ""
+    var description: String = ""
+    var ingredientsJson: String = ""
+    var directions: String = ""
+    var imgURL: String = ""
     
-    init(id:String,name:String?,category:String?,recipeDescription:String?,ingredientsJson: String?, photoUrl:String?) {
+    init(id:String,name:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String) {
         self.id = id
         self.name = name
         self.category = category
-        self.recipeDescription = recipeDescription
+        self.description = description
         self.ingredientsJson = ingredientsJson
-        self.photoUrl = photoUrl
+        self.directions = directions
+        self.imgURL = imgURL
     }
     
-    init(json:[String:Any]){
-        self.id = json["id"] as? String;
-        self.name = json["name"] as? String;
-        self.category = json["category"] as? String;
-        self.recipeDescription = json["recipeDescription"] as? String;
-        self.ingredientsJson = json["ingredientsJson"] as? String;
-        self.photoUrl = json["photoUrl"] as? String;
+    init(json:[String:String]){
+        self.id = json["id"]!;
+        self.name = json["name"]!;
+        self.category = json["category"]!;
+        self.description = json["description"]!;
+        self.ingredientsJson = json["ingredientsJson"]!;
+        self.directions = json["directions"]!;
+        self.imgURL = json["imgURL"]!;
 
     }
     
@@ -42,9 +45,10 @@ class Recipe {
         json["id"] = id
         json["name"] = name
         json["category"] = category
-        json["recipeDescription"] = name
+        json["description"] = description
         json["ingredientsJson"] = ingredientsJson
-        json["photoUrl"] = photoUrl
+        json["directions"] = directions
+        json["imgURL"] = imgURL
         return json
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 
 class RecipesListTableViewController: UITableViewController {
@@ -55,8 +56,8 @@ class RecipesListTableViewController: UITableViewController {
         let recipe = data[indexPath.row]
         //cate
         cell.recipeName.text = recipe.name
-        cell.recipeDescription.text = recipe.recipeDescription
-        cell.recipeImage.sd_setImage(with: URL(string: recipe.photoUrl!), placeholderImage: UIImage(named: "placeholder.png"))
+        cell.recipeDescription.text = recipe.description
+        cell.recipeImage.sd_setImage(with: URL(string: recipe.imgURL), placeholderImage: UIImage(named: "placeholder.png"))
         //print(RecipesListTableViewController.)
         //cell.temp.text = currentCategoryNameFromView
         //print(currentCategoryNameFromView)
@@ -66,6 +67,17 @@ class RecipesListTableViewController: UITableViewController {
         return cell
     }
     
+    // This func is passing data to RecipesViewController - Recipe object
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the index path from the cell that was tapped
+        let indexPath = tableView.indexPathForSelectedRow
+        // Get the Row of the Index Path and set as index
+        let index = indexPath?.row
+        // Get in touch with the DetailViewController
+        let RecipeViewController = segue.destination as! RecipeViewController
+        // Pass on the data to the Detail ViewController by setting it's indexPathRow value
+        RecipeViewController.recipeObj = data[index!]
+    }
 
     /*
     // Override to support conditional editing of the table view.
