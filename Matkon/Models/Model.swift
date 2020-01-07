@@ -7,31 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class Model {
     static let instance = Model()
     
-    
-//    var modelSql:ModelSql = ModelSql()
-    //var modelFirebase:ModelFirebaseDB = ModelFirebaseDB()
+    var modelFirebase:ModelFirebaseStorage = ModelFirebaseStorage()
 
-    private init(){
-//        modelSql.connect()
-//        for i in 0...5{
-//            let st = Student(id: String(i),name: "name " + String(i),avatar: "")
-//            add(student: st)
-//        }
+
+    private init(){}
+    
+    func saveImage(image:UIImage, callback: @escaping (String)->Void){
+        ModelFirebaseStorage.saveImage(image: image, callback: callback)
     }
-    
-//    func add(student:Student){
-//        modelSql.add(student: student)
-//        modelFirebase.add(student: student);
-//   }
-    
-//    func getAllStudents(callback:@escaping ([Recipe]?)->Void){
-//        modelFirebase.getAllStudents(callback: callback);
-//        return modelSql.getAllStudents()
-//        modelFirebase.getAllStudents();
- //   }
     
 }
