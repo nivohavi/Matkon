@@ -23,11 +23,17 @@ class ModelFirebaseDB{
         // Add a new document with a generated ID
         var ref: DocumentReference? = nil
         ref = db.collection("recipes").addDocument(data: recipe.toJson(), completion: { err in
-                if let err = err {
+                if let err = err
+                {
                     print("Error adding document: \(err)")
-                } else {
-                    print("Document added with ID: \(ref!.documentID)")
                 }
+                else
+                {
+                    print("Document added with ID: \(ref!.documentID)")
+                    
+                    // Add the auto generated ID field for .this document
+                    db.collection("recipes").document(ref!.documentID).setData(["id" : ref!.documentID], merge: true)
+            }
         })
     }
     

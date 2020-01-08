@@ -36,6 +36,10 @@ class ModelFirebaseAuth{
         return nil
     }
     
+    func getFIRUserEmail() -> String?{
+        return Auth.auth().currentUser?.email
+    }
+    
     func getFIRUserID() -> String?{
         return Auth.auth().currentUser?.uid
     }

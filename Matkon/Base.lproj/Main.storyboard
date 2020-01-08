@@ -396,7 +396,7 @@
                     <navigationItem key="navigationItem" id="zf4-1b-NEU">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UTK-dQ-ZJg">
                             <connections>
-                                <segue destination="pWk-HZ-PTF" kind="show" id="YtV-1t-eKR"/>
+                                <segue destination="pWk-HZ-PTF" kind="show" identifier="ToNewRecipeViewController" id="YtV-1t-eKR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -497,6 +497,7 @@
                         <outlet property="recipeImage" destination="dK5-6E-hPU" id="UCY-90-9gT"/>
                         <outlet property="recipeIngredients" destination="BAr-Pi-ha3" id="jgn-qS-9t9"/>
                         <outlet property="recipeName" destination="9GV-nq-OMR" id="n1T-k0-fTa"/>
+                        <outlet property="submitButtonOutlet" destination="MPm-yH-N2J" id="3MA-wj-nRC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTl-19-8G8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

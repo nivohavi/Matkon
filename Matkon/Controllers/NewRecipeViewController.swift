@@ -20,7 +20,8 @@ UINavigationControllerDelegate {
     @IBOutlet weak var directionsLabel: UILabel!
     @IBOutlet weak var recipeDirections: UITextField!
     @IBOutlet weak var myScroll: UIScrollView!
-    
+    @IBOutlet weak var submitButtonOutlet: UIBarButtonItem!
+    var recipeCategory: String?
     var selectedImage:UIImage?
 
     override func viewDidLoad() {
@@ -39,27 +40,27 @@ UINavigationControllerDelegate {
         recipeName.layer.shadowRadius = 1.0
 
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func submitButton(_ sender: Any) {
-        
         recipeName.placeholder = "Enter Recipe Name"
         recipeDescription.placeholder = "Enter yout recipe description here..."
-
-        if let image = selectedImage{
-            Model.instance.saveImage(image: image) { (url) in
-                print("saved image url \(url)");
-                let r = Recipe(id: "3232", name: self.recipeName.text!, category: "Mexican", description: self.recipeDescription.text!, ingredientsJson: self.recipeIngredients.text!, directions: self.recipeDirections.text!, imgURL: url)
-                        ModelFirebaseDB.instance.add(recipe: r);
-                        self.navigationController?.popViewController(animated: true);
-            }
-        }
-        
-        //ModelFirebaseDB.instance.add(recipe: r);
-        //dismiss(animated: true, completion: nil)
-
+        recipeIngredients.placeholder = "Enter the recipeDirections"
+        recipeDirections.placeholder = "Enter yout recipe directions of coocking..."
     }
     
+    @IBAction func submitButton(_ sender: Any)
+    {
+        if let image = selectedImage{
+            Model.instance.saveImage(image: image)
+            { (url) in
+                print("saved image url \(url)");
+                let r = Recipe(name: self.recipeName.text!,createdBy: ModelFirebaseAuth.instance.getFIRUserEmail()! ,category: self.recipeCategory!, description:
+                    self.recipeDescription.text!, ingredientsJson: self.recipeIngredients.text!, directions: self.recipeDirections.text!, imgURL: url)
+                        ModelFirebaseDB.instance.add(recipe: r);
+                    // Need to Hide the 'Submit' button
+                    self.navigationController?.popViewController(animated: true);
+            }
+        }
+    }
+
     
     @IBAction func takePic(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(

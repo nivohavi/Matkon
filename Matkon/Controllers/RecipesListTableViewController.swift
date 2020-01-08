@@ -82,6 +82,13 @@ class RecipesListTableViewController: UITableViewController {
             RecipeViewController.recipeObj = data[index!]
             
         }
+        
+        if segue.identifier == "ToNewRecipeViewController"
+        {
+            // Pass the category name for the New recipe controller
+            let NewRecipeViewController = segue.destination as! NewRecipeViewController
+            NewRecipeViewController.recipeCategory = currentCategoryNameFromView
+        }
     }
 
     /*
