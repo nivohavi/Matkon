@@ -33,6 +33,8 @@ class ModelFirebaseDB{
                     
                     // Add the auto generated ID field for .this document
                     db.collection("recipes").document(ref!.documentID).setData(["id" : ref!.documentID], merge: true)
+                    // Add timestamp to the post
+                    db.collection("recipes").document(ref!.documentID).setData(["timestamp" : Model.instance.getCurrentTimestamp()], merge: true)
             }
         })
     }

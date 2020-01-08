@@ -21,4 +21,8 @@ class Model {
         ModelFirebaseStorage.saveImage(image: image, callback: callback)
     }
     
+    func getCurrentTimestamp() -> String{
+        ModelFirebaseStorage.getCurrentTimeStampWOMiliseconds(dateToConvert: NSDate.now as NSDate)
+    }
+    
 }
