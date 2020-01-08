@@ -27,17 +27,8 @@ UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Allow scrolling (?)
         myScroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
-        recipeName.layer.backgroundColor = UIColor.white.cgColor
-        recipeName.layer.borderColor = UIColor.gray.cgColor
-        recipeName.layer.borderWidth = 0.0
-        recipeName.layer.cornerRadius = 5
-        recipeName.layer.masksToBounds = false
-        recipeName.layer.shadowRadius = 2.0
-        recipeName.layer.shadowColor = UIColor.black.cgColor
-        //recipeName.layer.shadowOffset = CGSizeMake(1.0, 1.0)
-        recipeName.layer.shadowOpacity = 1.0
-        recipeName.layer.shadowRadius = 1.0
 
         // Do any additional setup after loading the view.
         recipeName.placeholder = "Enter Recipe Name"
