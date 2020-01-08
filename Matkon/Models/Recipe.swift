@@ -13,13 +13,14 @@ class Recipe {
     
     var id:String = ""
     var name: String = ""
+    var createdBy: String = ""
     var category: String = ""
     var description: String = ""
     var ingredientsJson: String = ""
     var directions: String = ""
     var imgURL: String = ""
     
-    init(id:String,name:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String) {
+    init(id:String,name:String,createdBy:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String) {
         self.id = id
         self.name = name
         self.category = category
@@ -29,9 +30,21 @@ class Recipe {
         self.imgURL = imgURL
     }
     
+    // CTOR without ID - will assigned on 'add' func in ModelFirebaseDB
+    init(name:String,createdBy:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String) {
+        self.name = name
+        self.category = category
+        self.createdBy = createdBy
+        self.description = description
+        self.ingredientsJson = ingredientsJson
+        self.directions = directions
+        self.imgURL = imgURL
+    }
+    
     init(json:[String:String]){
         self.id = json["id"]!;
         self.name = json["name"]!;
+        self.createdBy = json["createdBy"]!;
         self.category = json["category"]!;
         self.description = json["description"]!;
         self.ingredientsJson = json["ingredientsJson"]!;
@@ -44,6 +57,7 @@ class Recipe {
         var json = [String:String]();
         json["id"] = id
         json["name"] = name
+        json["createdBy"] = createdBy
         json["category"] = category
         json["description"] = description
         json["ingredientsJson"] = ingredientsJson

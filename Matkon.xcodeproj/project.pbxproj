@@ -35,6 +35,7 @@
 		9F3304CA23BD391F006AC331 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304C923BD391F006AC331 /* Model.swift */; };
 		9F3304CC23BE45D7006AC331 /* CategoriesNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304CB23BE45D7006AC331 /* CategoriesNavigationViewController.swift */; };
 		9F3304D023BF7229006AC331 /* ClassUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304CF23BF7229006AC331 /* ClassUser.swift */; };
+		9F3304D523C3FF1B006AC331 /* ModelFirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304D423C3FF1B006AC331 /* ModelFirebaseStorage.swift */; };
 		9FB2AD4723AFF23800B8B075 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */; };
 		9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */; };
 		9FB2AD4E23AFF23800B8B075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4C23AFF23800B8B075 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		9F3304C923BD391F006AC331 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9F3304CB23BE45D7006AC331 /* CategoriesNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesNavigationViewController.swift; sourceTree = "<group>"; };
 		9F3304CF23BF7229006AC331 /* ClassUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassUser.swift; path = /Users/niohavi/Documents/Matkon/Matkon/Matkon/Models/ClassUser.swift; sourceTree = "<absolute>"; };
+		9F3304D423C3FF1B006AC331 /* ModelFirebaseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFirebaseStorage.swift; sourceTree = "<group>"; };
 		9FB2AD4323AFF23800B8B075 /* Matkon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matkon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				9F3304BD23BD15A3006AC331 /* ModelFirebaseDB.swift */,
 				9F3304C123BD18D5006AC331 /* Ingredients.swift */,
 				9F3304C923BD391F006AC331 /* Model.swift */,
+				9F3304D423C3FF1B006AC331 /* ModelFirebaseStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +204,13 @@
 				9F3304AF23BCDA57006AC331 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9F3304D123C3F632006AC331 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		9FB2AD3A23AFF23800B8B075 = {
@@ -228,6 +238,7 @@
 		9FB2AD4523AFF23800B8B075 /* Matkon */ = {
 			isa = PBXGroup;
 			children = (
+				9F3304D123C3F632006AC331 /* Utilities */,
 				9F3304AE23BCDA03006AC331 /* Resources */,
 				9F33049B23B797C4006AC331 /* Storyboards */,
 				9F33049223B61D75006AC331 /* Models */,
@@ -534,6 +545,7 @@
 				9F3304A723B93B58006AC331 /* TestViewController.swift in Sources */,
 				9F33048823B3E063006AC331 /* TabBarViewController.swift in Sources */,
 				9FB2AD7C23AFF52D00B8B075 /* SignUpViewController.swift in Sources */,
+				9F3304D523C3FF1B006AC331 /* ModelFirebaseStorage.swift in Sources */,
 				9F3304A523B91B63006AC331 /* SignUp2ViewController.swift in Sources */,
 				9F33049F23B7C19B006AC331 /* InitialViewController.swift in Sources */,
 				9FB2AD7823AFF50D00B8B075 /* StartViewController.swift in Sources */,

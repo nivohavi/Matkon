@@ -69,14 +69,26 @@ class RecipesListTableViewController: UITableViewController {
     
     // This func is passing data to RecipesViewController - Recipe object
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the index path from the cell that was tapped
-        let indexPath = tableView.indexPathForSelectedRow
-        // Get the Row of the Index Path and set as index
-        let index = indexPath?.row
-        // Get in touch with the DetailViewController
-        let RecipeViewController = segue.destination as! RecipeViewController
-        // Pass on the data to the Detail ViewController by setting it's indexPathRow value
-        RecipeViewController.recipeObj = data[index!]
+        
+        if segue.identifier == "ToRecipeViewController"
+        {
+            // Get the index path from the cell that was tapped
+            let indexPath = tableView.indexPathForSelectedRow
+            // Get the Row of the Index Path and set as index
+            let index = indexPath?.row
+            // Get in touch with the DetailViewController
+            let RecipeViewController = segue.destination as! RecipeViewController
+            // Pass on the data to the Detail ViewController by setting it's indexPathRow value
+            RecipeViewController.recipeObj = data[index!]
+            
+        }
+        
+        if segue.identifier == "ToNewRecipeViewController"
+        {
+            // Pass the category name for the New recipe controller
+            let NewRecipeViewController = segue.destination as! NewRecipeViewController
+            NewRecipeViewController.recipeCategory = currentCategoryNameFromView
+        }
     }
 
     /*
