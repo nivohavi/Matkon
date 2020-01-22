@@ -32,25 +32,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let result = ModelFirebaseDB.instance.getCurrentUserInfo()
-        //self.navigationController?.isNavigationBarHidden = true
-        
-        // TBD - Firebase get current user details
-        //let user = Auth.auth().currentUser
-        //print(user?.email)
-        //self.userEmail.text = user?.email
-
+        let user = ModelFirebaseDB.instance.getCurrentUserInfo()
+        self.userEmail.text = user?.email
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

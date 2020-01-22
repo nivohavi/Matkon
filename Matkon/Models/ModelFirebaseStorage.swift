@@ -11,14 +11,11 @@ import Firebase
 import UIKit
 
 
-class ModelFirebaseStorage {
-    
-    
+class ModelFirebaseStorage {    
     //static let instance = ModelFirebaseStorage()
     
     //private init (){
     //}
-    
     
     static func saveImage(image:UIImage, callback:@escaping (String)->Void){
         let storageRef = Storage.storage().reference(forURL:

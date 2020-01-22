@@ -37,30 +37,12 @@ class ModelFirebaseDB{
                     db.collection("recipes").document(ref!.documentID).setData(["timestamp" : Model.instance.getCurrentTimestamp()], merge: true)
             }
         })
+        ModelEvents.ReloadRecipesData.post()
     }
     
-    func getCurrentUserInfo() -> ClassUser{
-        var userRef: ClassUser?
-        var username: String?
-        var ref: DatabaseReference!
-        let userID = Auth.auth().currentUser?.uid
-        ref = Database.database().reference()
-        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let firebaseDic = snapshot.value as? [String: AnyObject] // unwrap it since its an optional
-            {
-                username = firebaseDic["username"] as! String
-               let email = firebaseDic["email"] as! String
-
-            }
-            else
-            {
-              print("Error retrieving FrB data") // snapshot value is nil
-            }
-
-        })
-        //return userRef
-        return ClassUser(usersname: username)
-
+    func getCurrentUserInfo() -> User?{
+        let user = Auth.auth().currentUser
+        return user
     }
 
     func getRecipesByCategory(categoryToQuery: String?, callback: @escaping ([Recipe]?)->Void){
@@ -79,7 +61,6 @@ class ModelFirebaseDB{
         };
     }
     
-
     
     func getAllRecipes(callback: @escaping ([Recipe]?)->Void){
         let db = Firestore.firestore()

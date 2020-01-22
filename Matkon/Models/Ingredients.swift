@@ -10,18 +10,10 @@ import Foundation
 
 class Ingredients {
     
-    //var name: String
-    //var quantity: String
     var ingredientsList: [String:Any] = [:]
 
     init(json:String) {
-        //self.name = json["name"] as? String;
-        //self.quantity = json["quantity"] as? String;
-        //let json = try? JSONSerialization.jsonObject(with: json!, options: []) as? NSDictionary
-        
-        //self.ingredientsList["name"] = json["name"] as? String;
         self.ingredientsList = (json.toJSON() as? [String:AnyObject])!
-
     }
 
 }

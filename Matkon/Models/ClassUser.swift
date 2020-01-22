@@ -36,8 +36,6 @@ class ClassUser {
 
     }
     
-    
-    // CTOR for Firebase return value for user
     init(withSnapshot: DataSnapshot) {
         let dict = withSnapshot.value as! [String:AnyObject]
 

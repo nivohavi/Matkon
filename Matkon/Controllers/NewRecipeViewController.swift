@@ -27,26 +27,26 @@ UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Allow scrolling (?)
         myScroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
 
-        // Do any additional setup after loading the view.
         recipeName.placeholder = "Enter Recipe Name"
         recipeDescription.placeholder = "Enter yout recipe description here..."
         recipeIngredients.placeholder = "Enter the recipeDirections"
         recipeDirections.placeholder = "Enter yout recipe directions of coocking..."
+    
     }
     
     @IBAction func submitButton(_ sender: Any)
     {
+        
         if let image = selectedImage{
+            self.submitButtonOutlet.isEnabled = false
             Model.instance.saveImage(image: image)
             { (url) in
                 print("saved image url \(url)");
                 let r = Recipe(name: self.recipeName.text!,createdBy: ModelFirebaseAuth.instance.getFIRUserEmail()! ,category: self.recipeCategory!, description:
                     self.recipeDescription.text!, ingredientsJson: self.recipeIngredients.text!, directions: self.recipeDirections.text!, imgURL: url)
                         ModelFirebaseDB.instance.add(recipe: r);
-                    // Need to Hide the 'Submit' button
                     self.navigationController?.popViewController(animated: true);
             }
         }
@@ -70,15 +70,5 @@ UINavigationControllerDelegate {
         self.recipeImage.image = selectedImage;
         dismiss(animated: true, completion: nil);
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
