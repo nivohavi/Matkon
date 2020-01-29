@@ -24,6 +24,20 @@ UINavigationControllerDelegate {
     var recipeCategory: String?
     var selectedImage:UIImage?
 
+    @IBAction func dismissRecipeName(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    @IBAction func dismissRecipeDisc(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    @IBAction func dismissIng(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    @IBAction func dismissDirections(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,8 +66,8 @@ UINavigationControllerDelegate {
         }
     }
 
-    
-    @IBAction func takePic(_ sender: UIButton) {
+
+    @IBAction func addImage(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(
             UIImagePickerController.SourceType.photoLibrary) {
            let imagePicker = UIImagePickerController()

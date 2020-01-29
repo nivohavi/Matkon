@@ -45,18 +45,12 @@ class CategoriesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
-    // This func is passing data to RecipesListTableViewController - the Category Name
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the index path from the cell that was tapped
         let indexPath = tableView.indexPathForSelectedRow
-        // Get the Row of the Index Path and set as index
         let index = indexPath?.row
-        // Get in touch with the DetailViewController
         let RecipesListTableViewController = segue.destination as! RecipesListTableViewController
-        // Pass on the data to the Detail ViewController by setting it's indexPathRow value
         RecipesListTableViewController.currentCategoryNameFromView = categories[index!].name
     }
 }

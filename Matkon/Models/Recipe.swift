@@ -30,7 +30,6 @@ class Recipe {
         self.imgURL = imgURL
     }
     
-    // CTOR without ID - will assigned on 'add' func in ModelFirebaseDB
     init(name:String,createdBy:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String) {
         self.name = name
         self.category = category

@@ -34,18 +34,14 @@ class RecipeViewController: UIViewController {
         self.recipeImage.sd_setImage(with: URL(string: recipeObj!.imgURL), placeholderImage: UIImage(named: "placeholder.png"))
         self.recipeDescription.text = recipeObj?.description
         self.recipeDirections.text = recipeObj?.directions
-        // from view
+        self.recipeIngredients.text = recipeObj?.ingredientsJson
 
-        // Do any additional setup after loading the view.
         ingredientsLabel.layer.borderWidth = 0.5
         ingredientsLabel.layer.borderColor = UIColor.orange.cgColor
         
         directionsLabel.layer.borderWidth = 0.5
         directionsLabel.layer.borderColor = UIColor.orange.cgColor
         
-        
-        
-        // Make recipe image round (not suare)
         recipeImage.layer.masksToBounds = true
         recipeImage.layer.cornerRadius = recipeImage.bounds.width / 2
     }

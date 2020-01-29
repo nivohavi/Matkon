@@ -13,9 +13,12 @@ class Model {
     static let instance = Model()
     
     var modelFirebase:ModelFirebaseStorage = ModelFirebaseStorage()
+    var modelSql:ModelCacheSQL = ModelCacheSQL()
 
 
-    private init(){}
+    private init(){
+        modelSql.connect()
+    }
     
     func saveImage(image:UIImage, callback: @escaping (String)->Void){
         ModelFirebaseStorage.saveImage(image: image, callback: callback)
@@ -24,5 +27,7 @@ class Model {
     func getCurrentTimestamp() -> String{
         ModelFirebaseStorage.getCurrentTimeStampWOMiliseconds(dateToConvert: NSDate.now as NSDate)
     }
+    
+    
     
 }
