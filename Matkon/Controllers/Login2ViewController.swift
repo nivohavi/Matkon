@@ -16,20 +16,26 @@ class Login2ViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    //
-    // Back button - Action
-    //
+    @IBAction func dismissEmail(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    @IBAction func dismissPassword(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    //
-    // Login button - Action
-    //
+
     @IBAction func loginActionButton(_ sender: Any) {
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
         ModelFirebaseAuth.instance.signInFirebase(email: emailTextField.text!, password: passwordTextField.text!) { (error: String?) in
           if error != nil{
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
                 let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
 
@@ -37,19 +43,11 @@ class Login2ViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
           }
           else {
-                //self.performSegue(withIdentifier: "LoginToHome", sender: self)
             let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabBarViewController")
             
-            // Register User in FireBase Realtime Database
-            ModelFirebaseDB.instance.registerNewUserToRealtimeDB(email: self.emailTextField.text)
-            
-            
-            
-            // use back the old iOS 12 modal full screen style
             tabBarVC.modalPresentationStyle = .fullScreen
                 
             self.present(tabBarVC, animated: true, completion: nil)
-            print("Logged In Successfully !!!")
 
             }
         }
@@ -58,29 +56,17 @@ class Login2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.spinner.isHidden = true
         passwordTextField.isSecureTextEntry = true
         emailTextField.placeholder = "Email"
         emailTextField.textAlignment = .center
         passwordTextField.placeholder = "Password"
         passwordTextField.textAlignment = .center
-
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

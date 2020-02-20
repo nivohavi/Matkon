@@ -1,49 +1,52 @@
 //
-//  RecipesListTableViewController.swift
+//  MyRecipesTableViewController.swift
 //  Matkon
 //
-//  Created by Niv Ohavi on 01/01/2020.
+//  Created by Niv Ohavi on 29/01/2020.
 //  Copyright © 2020 Niv Ohavi. All rights reserved.
 //
 
 import UIKit
 import SDWebImage
 
-
-class RecipesListTableViewController: UITableViewController {
-    
+class MyRecipesTableViewController: UITableViewController {
     var data = [Recipe]()
     var currentCategoryNameFromView: String?
     var observer:Any?;
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(self.reloadData), for: .valueChanged)
+        self.reloadData()
         
         observer = ModelEvents.ReloadRecipesData.observe{
             self.reloadData()
         }
-        self.reloadData()
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(self.reloadData), for: .valueChanged)
         
     }
-    
-    @objc func reloadData(){
-        if self.refreshControl?.isRefreshing == false{
-            self.refreshControl?.beginRefreshing()
-        }
-        
-        Model.instance.getRecipeByCategory(categoryToQuery: currentCategoryNameFromView!){ (recpieCallback) in
-            self.data = recpieCallback!
-            self.tableView.reloadData();
-            self.refreshControl?.endRefreshing()
-        }
-        
-    };
-    
 
+    @objc func reloadData(){
+        
+        if self.refreshControl?.isRefreshing == false{
+             self.refreshControl?.beginRefreshing()
+         }
+         
+        ModelFirebaseDB.instance.getUserRecipes { (data) in
+                if data != nil{
+                    self.data = [Recipe]()
+                    for r in data!{
+                        self.data.append(r)
+                    }
+                    self.tableView.reloadData();
+                    self.refreshControl?.endRefreshing()
+
+                }
+            }
+
+         };
+     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -51,10 +54,8 @@ class RecipesListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:RecipeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as! RecipeTableViewCell
+        let cell:MyRecipesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyRecipesTableViewCell", for: indexPath) as! MyRecipesTableViewCell
 
         
         let recipe = data[indexPath.row]
@@ -66,25 +67,21 @@ class RecipesListTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "ToRecipeViewController"
+        if segue.identifier == "ToEditRecipeViewController"
         {
             let indexPath = tableView.indexPathForSelectedRow
             let index = indexPath?.row
-            let RecipeViewController = segue.destination as! RecipeViewController
-            RecipeViewController.recipeObj = data[index!]
+            let recipe = data[index!]
+            let EditRecipeViewController = segue.destination as! EditRecipeViewController
+            EditRecipeViewController.recipe = recipe
             
-        }
-        
-        if segue.identifier == "ToNewRecipeViewController"
-        {
-            let NewRecipeViewController = segue.destination as! NewRecipeViewController
-            NewRecipeViewController.recipeCategory = currentCategoryNameFromView
+
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.navigationController
     }
+
 
 }

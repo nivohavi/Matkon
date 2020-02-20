@@ -12,9 +12,8 @@ import UIKit
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
 let viewController = storyboard.instantiateViewController(identifier: "Login2ViewController")
 
-// Alerts
 let passwordAlertController = UIAlertController(title: "Password Incorrect", message: "Please re-type password", preferredStyle: .alert)
-//let errorAlertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+
 var errorAlertController: UIAlertController? = nil
 
 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -25,19 +24,27 @@ class SignUp2ViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var passwordConfirm: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
+    @IBAction func dismissEmail(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
     
-    //
-    // Back button - Action
-    //
+    @IBAction func dismissPassword(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func dismissConfirm(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    //
-    // Signup button - Action
-    //
     @IBAction func signUpActionButton(_ sender: Any) {
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
                 if password.text != passwordConfirm.text {
 
             passwordAlertController.addAction(defaultAction)
@@ -46,16 +53,16 @@ class SignUp2ViewController: UIViewController {
         else{
             fbAuth.createUserFirebase(email: email.text!, password: password.text!) { (error: String?) in
               if error != nil{
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
                     errorAlertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
                 errorAlertController!.addAction(defaultAction)
                 self.present(errorAlertController!, animated: true, completion: nil)
               }
               else {
                     print("User Signed Up Successfully !!!")
-                // TBD - Should transfer to Login
+
                 let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "Login2ViewController")
-                
-                // use back the old iOS 12 modal full screen style
                 loginVC.modalPresentationStyle = .fullScreen
                     
                 self.present(loginVC, animated: true, completion: nil)
@@ -68,7 +75,7 @@ class SignUp2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.spinner.isHidden = true
         email.placeholder = "Email"
         email.textAlignment = .center
         password.placeholder = "Password"
@@ -77,21 +84,11 @@ class SignUp2ViewController: UIViewController {
         passwordConfirm.placeholder = "Password"
         passwordConfirm.isSecureTextEntry = true
         passwordConfirm.textAlignment = .center
-        // Do any additional setup after loading the view.
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -1,16 +1,14 @@
 //
-//  RecipeTableViewCell.swift
+//  MyRecipesTableViewCell.swift
 //  Matkon
 //
-//  Created by Niv Ohavi on 01/01/2020.
+//  Created by Niv Ohavi on 17/02/2020.
 //  Copyright © 2020 Niv Ohavi. All rights reserved.
 //
 
 import UIKit
 
-class RecipeTableViewCell: UITableViewCell {
-
-    
+class MyRecipesTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeDescription: UILabel!
@@ -22,6 +20,7 @@ class RecipeTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
     }
 
 }

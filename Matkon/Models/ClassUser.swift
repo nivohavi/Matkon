@@ -9,42 +9,50 @@ import Foundation
 import FirebaseDatabase
 
 class ClassUser {
-    var usersname: String?
     var email: String?
-    var password: String?
-    var photoUrl: String?
+    var imgURL: String?
     var uid: String?
 
-    init(usersname:String?,email:String?,password:String?, photoUrl:String?,uid:String?) {
-        self.usersname = usersname
+
+    init() {}
+    
+    init(email:String?, imgURL:String?,uid:String?) {
         self.email = email
-        self.password = password
-        self.photoUrl = photoUrl
+        self.imgURL = imgURL
         self.uid = uid
+
     }
-    
-    init(usersname:String?) {
-        self.usersname = usersname
-    }
-    
-    init(json:[String:Any]){
-        self.usersname = json["usersname"] as? String;
-        self.email = json["email"] as? String;
-        self.password = json["password"] as? String;
-        self.photoUrl = json["photoUrl"] as? String;
-        self.uid = json["uid"] as? String;
+    init(email:String?, imgURL:String?) {
+        self.email = email
+        self.imgURL = imgURL
+        self.uid = ""
 
     }
     
     
-    // CTOR for Firebase return value for user
+    init(json:[String:Any]){
+        self.email = json["email"] as? String;
+        self.imgURL = json["imgURL"] as? String;
+        self.uid = json["uid"] as? String;
+
+
+    }
+    
     init(withSnapshot: DataSnapshot) {
         let dict = withSnapshot.value as! [String:AnyObject]
 
-        uid = withSnapshot.key
-        usersname = dict["usersname"] as? String
         email = dict["email"] as! String
-        password = dict["password"] as! String
-        photoUrl = dict["photoUrl"] as! String
+        imgURL = dict["imgURL"] as! String
+        uid = dict["uid"] as! String;
+
+    }
+    
+    func toJson() -> [String:Any] {
+        var json = [String:Any]();
+        json["email"] = email
+        json["imgURL"] = imgURL
+        json["uid"] = uid
+
+        return json
     }
 }
