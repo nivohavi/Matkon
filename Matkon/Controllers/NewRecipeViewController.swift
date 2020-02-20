@@ -10,17 +10,19 @@ import UIKit
 
 class NewRecipeViewController: UIViewController,
 UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+UINavigationControllerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UITextField!
     @IBOutlet weak var recipeDescription: UITextField!
     @IBOutlet weak var ingredientsLabel: UILabel!
-    @IBOutlet weak var recipeIngredients: UITextField!
+
     @IBOutlet weak var directionsLabel: UILabel!
-    @IBOutlet weak var recipeDirections: UITextField!
     @IBOutlet weak var myScroll: UIScrollView!
     @IBOutlet weak var submitButtonOutlet: UIBarButtonItem!
+    
+    @IBOutlet weak var directionsTextView: UITextView!
+    @IBOutlet weak var ingTextView: UITextView!
     var recipeCategory: String?
     var selectedImage:UIImage?
 
@@ -37,16 +39,53 @@ UINavigationControllerDelegate {
         sender.resignFirstResponder()
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Please enter your input..." {
+            textView.text = ""
+            textView.textColor = UIColor.black
+            textView.font = UIFont(name: "verdana", size: 18.0)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Please enter your input..."
+            textView.textColor = UIColor.lightGray
+            textView.font = UIFont(name: "verdana", size: 13.0)
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        directionsTextView.text = "Please enter your input..."
+        directionsTextView.textColor = UIColor.lightGray
+        directionsTextView.font = UIFont(name: "verdana", size: 13.0)
+        directionsTextView.returnKeyType = .done
+        directionsTextView.delegate = self
+        ingTextView.text = "Please enter your input..."
+        ingTextView.textColor = UIColor.lightGray
+        ingTextView.font = UIFont(name: "verdana", size: 13.0)
+        ingTextView.returnKeyType = .done
+        ingTextView.delegate = self
+        
+        
         myScroll.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
 
         recipeName.placeholder = "Enter Recipe Name"
         recipeDescription.placeholder = "Enter yout recipe description here..."
-        recipeIngredients.placeholder = "Enter the recipeDirections"
-        recipeDirections.placeholder = "Enter yout recipe directions of coocking..."
+
     
     }
     
@@ -58,8 +97,7 @@ UINavigationControllerDelegate {
             Model.instance.saveImage(image: image)
             { (url) in
                 print("saved image url \(url)");
-                let r = Recipe(name: self.recipeName.text!,createdBy: ModelFirebaseAuth.instance.getFIRUserEmail()! ,category: self.recipeCategory!, description:
-                    self.recipeDescription.text!, ingredientsJson: self.recipeIngredients.text!, directions: self.recipeDirections.text!, imgURL: url)
+                let r = Recipe(name: self.recipeName.text!, createdBy: ModelFirebaseAuth.instance.getFIRUserEmail()! ,category: self.recipeCategory!, description: self.recipeDescription.text!, ingredientsJson: self.ingTextView.text!, directions: self.directionsTextView.text!, imgURL: url,timestamp: 9999999999999999)
                         ModelFirebaseDB.instance.add(recipe: r);
                     self.navigationController?.popViewController(animated: true);
             }

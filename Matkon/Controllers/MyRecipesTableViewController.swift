@@ -7,84 +7,81 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MyRecipesTableViewController: UITableViewController {
-
+    var data = [Recipe]()
+    var currentCategoryNameFromView: String?
+    var observer:Any?;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.reloadData()
+        
+        observer = ModelEvents.ReloadRecipesData.observe{
+            self.reloadData()
+        }
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(self.reloadData), for: .valueChanged)
+        
     }
 
-    // MARK: - Table view data source
+    @objc func reloadData(){
+        
+        if self.refreshControl?.isRefreshing == false{
+             self.refreshControl?.beginRefreshing()
+         }
+         
+        ModelFirebaseDB.instance.getUserRecipes { (data) in
+                if data != nil{
+                    self.data = [Recipe]()
+                    for r in data!{
+                        self.data.append(r)
+                    }
+                    self.tableView.reloadData();
+                    self.refreshControl?.endRefreshing()
 
+                }
+            }
+
+         };
+     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return data.count
     }
-
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell:MyRecipesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyRecipesTableViewCell", for: indexPath) as! MyRecipesTableViewCell
 
-        // Configure the cell...
-
+        
+        let recipe = data[indexPath.row]
+        cell.recipeName.text = recipe.name
+        cell.recipeDescription.text = recipe.description
+        cell.recipeImage.sd_setImage(with: URL(string: recipe.imgURL), placeholderImage: UIImage(named: "placeholder.png"))
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ToEditRecipeViewController"
+        {
+            let indexPath = tableView.indexPathForSelectedRow
+            let index = indexPath?.row
+            let recipe = data[index!]
+            let EditRecipeViewController = segue.destination as! EditRecipeViewController
+            EditRecipeViewController.recipe = recipe
+            
+
+        }
     }
-    */
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController
+    }
+
 
 }

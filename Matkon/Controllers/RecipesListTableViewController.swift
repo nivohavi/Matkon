@@ -18,25 +18,31 @@ class RecipesListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-        ModelFirebaseDB.instance.getRecipesByCategory(categoryToQuery: currentCategoryNameFromView) { (_data:[Recipe]?) in
-            if (_data != nil) {
-                self.data = _data!;
-                self.tableView.reloadData();
-            }
-        };
+        
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(self.reloadData), for: .valueChanged)
         
         observer = ModelEvents.ReloadRecipesData.observe{
-            ModelFirebaseDB.instance.getRecipesByCategory(categoryToQuery: self.currentCategoryNameFromView) { (_data:[Recipe]?) in
-                    if (_data != nil) {
-                        self.data = _data!;
-                        self.tableView.reloadData();
-                        }
-            };
+            self.reloadData()
         }
-        
+        self.reloadData()
         
     }
+    
+    @objc func reloadData(){
+        if self.refreshControl?.isRefreshing == false{
+            self.refreshControl?.beginRefreshing()
+        }
+        
+        Model.instance.getRecipeByCategory(categoryToQuery: currentCategoryNameFromView!){ (recpieCallback) in
+            self.data = recpieCallback!
+            self.tableView.reloadData();
+            self.refreshControl?.endRefreshing()
+        }
+        
+    };
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

@@ -13,14 +13,16 @@ class CategoriesTableViewController: UITableViewController {
     
     var category:Category?
     var categories = [
-        Category(name: "Italian", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png"),
-        Category(name: "Mexican", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png"),
-        Category(name: "Israeli", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png"),
-        Category(name: "French", imgURL: "http://getdrawings.com/free-icon-bw/taco-icon-5.png")
+        Category(name: "Italian", imgURL: "https://img.icons8.com/cute-clipart/64/000000/pizza.png"),
+        Category(name: "Mexican", imgURL: "https://img.icons8.com/cute-clipart/64/000000/taco.png"),
+        Category(name: "Israeli", imgURL: "https://img.icons8.com/cute-clipart/64/000000/weber.png"),
+        Category(name: "French", imgURL: "https://img.icons8.com/cute-clipart/64/000000/croissant.png")
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = 156
     }
 
 

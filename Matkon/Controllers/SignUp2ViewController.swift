@@ -24,6 +24,7 @@ class SignUp2ViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var passwordConfirm: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBAction func dismissEmail(_ sender: UITextField) {
         sender.resignFirstResponder()
@@ -42,6 +43,8 @@ class SignUp2ViewController: UIViewController {
     }
     
     @IBAction func signUpActionButton(_ sender: Any) {
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
                 if password.text != passwordConfirm.text {
 
             passwordAlertController.addAction(defaultAction)
@@ -50,6 +53,8 @@ class SignUp2ViewController: UIViewController {
         else{
             fbAuth.createUserFirebase(email: email.text!, password: password.text!) { (error: String?) in
               if error != nil{
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
                     errorAlertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
                 errorAlertController!.addAction(defaultAction)
                 self.present(errorAlertController!, animated: true, completion: nil)
@@ -70,7 +75,7 @@ class SignUp2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.spinner.isHidden = true
         email.placeholder = "Email"
         email.textAlignment = .center
         password.placeholder = "Password"
