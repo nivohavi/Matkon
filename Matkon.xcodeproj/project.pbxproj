@@ -40,6 +40,8 @@
 		9F3304E123DCAC0A006AC331 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3304E023DCAC03006AC331 /* libsqlite3.0.tbd */; };
 		9F3304E323E1BD68006AC331 /* MyRecipesNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304E223E1BD68006AC331 /* MyRecipesNavigationViewController.swift */; };
 		9F3304E523E1C8FB006AC331 /* MyRecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304E423E1C8FB006AC331 /* MyRecipesTableViewController.swift */; };
+		9F3304EA23FB161C006AC331 /* MyRecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304E923FB161C006AC331 /* MyRecipesTableViewCell.swift */; };
+		9F3304EC23FB1FC6006AC331 /* EditRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3304EB23FB1FC6006AC331 /* EditRecipeViewController.swift */; };
 		9FB2AD4723AFF23800B8B075 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */; };
 		9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */; };
 		9FB2AD4E23AFF23800B8B075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB2AD4C23AFF23800B8B075 /* Main.storyboard */; };
@@ -110,6 +112,9 @@
 		9F3304E023DCAC03006AC331 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		9F3304E223E1BD68006AC331 /* MyRecipesNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesNavigationViewController.swift; sourceTree = "<group>"; };
 		9F3304E423E1C8FB006AC331 /* MyRecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesTableViewController.swift; sourceTree = "<group>"; };
+		9F3304E923FB161C006AC331 /* MyRecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesTableViewCell.swift; sourceTree = "<group>"; };
+		9F3304EB23FB1FC6006AC331 /* EditRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeViewController.swift; sourceTree = "<group>"; };
+		9F3304ED23FDCC58006AC331 /* Matkon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Matkon.entitlements; sourceTree = "<group>"; };
 		9FB2AD4323AFF23800B8B075 /* Matkon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matkon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB2AD4623AFF23800B8B075 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FB2AD4823AFF23800B8B075 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +253,7 @@
 		9FB2AD4523AFF23800B8B075 /* Matkon */ = {
 			isa = PBXGroup;
 			children = (
+				9F3304ED23FDCC58006AC331 /* Matkon.entitlements */,
 				9F3304D123C3F632006AC331 /* Utilities */,
 				9F3304AE23BCDA03006AC331 /* Resources */,
 				9F33049B23B797C4006AC331 /* Storyboards */,
@@ -302,6 +308,8 @@
 				9F3304CB23BE45D7006AC331 /* CategoriesNavigationViewController.swift */,
 				9F3304E223E1BD68006AC331 /* MyRecipesNavigationViewController.swift */,
 				9F3304E423E1C8FB006AC331 /* MyRecipesTableViewController.swift */,
+				9F3304E923FB161C006AC331 /* MyRecipesTableViewCell.swift */,
+				9F3304EB23FB1FC6006AC331 /* EditRecipeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -564,6 +572,7 @@
 				9F3304E323E1BD68006AC331 /* MyRecipesNavigationViewController.swift in Sources */,
 				9F3304AB23BA6C43006AC331 /* Category.swift in Sources */,
 				9F3304D923D8A95F006AC331 /* ModelEventsTemplate.swift in Sources */,
+				9F3304EA23FB161C006AC331 /* MyRecipesTableViewCell.swift in Sources */,
 				9F33049423B62088006AC331 /* ModelFirebaseAuth.swift in Sources */,
 				9F3304A923BA6B81006AC331 /* CategoriesTableViewController.swift in Sources */,
 				9F3304C423BD1F4E006AC331 /* RecipeTableViewCell.swift in Sources */,
@@ -572,6 +581,7 @@
 				9FB2AD7E23AFF53E00B8B075 /* FeedViewController.swift in Sources */,
 				9F3304CA23BD391F006AC331 /* Model.swift in Sources */,
 				9F3304D023BF7229006AC331 /* ClassUser.swift in Sources */,
+				9F3304EC23FB1FC6006AC331 /* EditRecipeViewController.swift in Sources */,
 				9FB2AD4923AFF23800B8B075 /* SceneDelegate.swift in Sources */,
 				9F3304CC23BE45D7006AC331 /* CategoriesNavigationViewController.swift in Sources */,
 				9F3304C823BD3667006AC331 /* IngredientTableViewCell.swift in Sources */,
@@ -755,6 +765,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Matkon/Matkon.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Matkon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -776,6 +787,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Matkon/Matkon.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Matkon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
