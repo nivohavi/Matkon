@@ -60,4 +60,11 @@ class ModelFirebaseAuth{
         }
       }
     }
+    
+    func areUserLoggedIn() -> Bool{
+        if (Auth.auth().currentUser != nil){
+            return true
+        }
+        return false
+    }
 }

@@ -13,6 +13,7 @@ import FirebaseDatabase
 class ModelFirebaseDB{
     
     static let instance = ModelFirebaseDB()
+    let modelSQL = ModelCacheSQL()
     
     private init (){
     }
@@ -28,42 +29,75 @@ class ModelFirebaseDB{
                 }
                 else
                 {
+                    ModelEvents.ReloadRecipesData.post()
                     print("Document added with ID: \(ref!.documentID)")
-                    
                     db.collection("recipes").document(ref!.documentID).setData(["id" : ref!.documentID], merge: true)
-                    db.collection("recipes").document(ref!.documentID).setData(["timestamp" : Model.instance.getCurrentTimestamp()], merge: true)
+                    
             }
         })
-        ModelEvents.ReloadRecipesData.post()
+    }
+    
+    
+    func addUser(user:ClassUser){
+        let db = Firestore.firestore()
+        
+        var ref: DocumentReference? = nil
+        ref = db.collection("users").addDocument(data: user.toJson(), completion: { err in
+                if let err = err
+                {
+                    print("Error adding document: \(err)")
+                }
+                else
+                {
+                    db.collection("users").document(ref!.documentID).setData(["uid" : ref!.documentID], merge: true)
+                    print("Document added with ID: \(ref!.documentID)")
+            }
+        })
+    }
+    
+    
+    
+    func updateUser(user: ClassUser){
+        let db = Firestore.firestore()
+        db.collection("users").document(user.uid!).updateData([
+            "imgURL": user.imgURL!
+            ])
+            { err in
+                  if let err = err {
+                      print("Error updating document: \(err)")
+                  } else {
+                    ModelEvents.ReloadRecipesData.post()
+                      print("Document successfully updated!")
+                  }
+              };
     }
 
-    func getRecipesByCategory(categoryToQuery: String?, callback: @escaping ([Recipe]?)->Void){
+    func getRecipesByCategory(since: Int64, categoryToQuery: String?, callback: @escaping ([Recipe]?)->Void){
         let db = Firestore.firestore()
-        db.collection("recipes").whereField("category", isEqualTo: categoryToQuery!).getDocuments() { (querySnapshot, err) in
+        db.collection("recipes").order(by: "timestamp").start(at: [Timestamp(seconds: since, nanoseconds: 0)]).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 callback(nil);
             } else {
                 var data = [Recipe]();
                 for document in querySnapshot!.documents {
-                    data.append(Recipe(json: document.data() as! [String : String]));
+                    data.append(Recipe(json: document.data()));
                 }
                 callback(data);
             }
         };
     }
     
-    
-    func getAllRecipes(callback: @escaping ([Recipe]?)->Void){
+    func getAllRecipes(since:Int64, callback: @escaping ([Recipe]?)->Void){
         let db = Firestore.firestore()
-        db.collection("recipes").getDocuments { (querySnapshot, err) in
+        db.collection("recipes").order(by: "timestamp").start(at: [Timestamp(seconds: since, nanoseconds: 0)]).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
                 callback(nil);
             } else {
                 var data = [Recipe]();
                 for document in querySnapshot!.documents {
-                    data.append(Recipe(json: document.data() as! [String : String]));
+                    data.append(Recipe(json: document.data()));
                 }
                 callback(data);
             }
@@ -80,7 +114,7 @@ class ModelFirebaseDB{
             } else {
                 var data = [Recipe]();
                 for document in querySnapshot!.documents {
-                    data.append(Recipe(json: document.data() as! [String : String]));
+                    data.append(Recipe(json: document.data()));
                 }
                 callback(data);
             }
@@ -92,7 +126,7 @@ class ModelFirebaseDB{
         db.collection("recipes").document(recipeId).getDocument {
             (document, error) in
             if let document = document, document.exists {
-                let data = Recipe(json: document.data() as! [String : String])
+                let data = Recipe(json: document.data()!)
                 callback(data)
              } else {
                 print("Document does not exist")
@@ -100,6 +134,25 @@ class ModelFirebaseDB{
              }
         };
     }
+    
+    func getImageUrlByEmail(userEmail: String, callback: @escaping (ClassUser?)->Void){
+        let db = Firestore.firestore()
+        db.collection("users").whereField("email", isEqualTo: userEmail).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                callback(nil);
+            } else {
+                let data = ClassUser()
+                for document in querySnapshot!.documents {
+                    data.email = document.data()["email"] as? String
+                    data.imgURL = document.data()["imgURL"] as? String
+                    data.uid = document.data()["uid"] as? String
+                }
+                callback(data);
+            }
+        };
+    }
+    
    
     func deleteRecipeById(recipeId: String) {
         let db = Firestore.firestore()
@@ -108,6 +161,7 @@ class ModelFirebaseDB{
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
+                ModelEvents.ReloadRecipesData.post()
                 print("Document successfully removed!")
             }
         };
@@ -120,13 +174,15 @@ class ModelFirebaseDB{
             "description": recipe.description,
             "ingredientsJson": recipe.ingredientsJson,
             "directions": recipe.directions,
-            "imgURL": recipe.imgURL
+            "imgURL": recipe.imgURL,
+            "timestamp": FieldValue.serverTimestamp()
             ])
             { err in
                   if let err = err {
-                      print("Error removing document: \(err)")
+                      print("Error updating document: \(err)")
                   } else {
-                      print("Document successfully removed!")
+                    ModelEvents.ReloadRecipesData.post()
+                      print("Document successfully updated!")
                   }
               };
     }

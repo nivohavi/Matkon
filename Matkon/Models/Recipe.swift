@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class Recipe {
     
@@ -19,10 +20,26 @@ class Recipe {
     var ingredientsJson: String = ""
     var directions: String = ""
     var imgURL: String = ""
+    var timestamp: Int64?
+    
+    init(){}
+    
+    init(id:String,name:String,createdBy:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String, timestamp:Int64) {
+        self.id = id
+        self.name = name
+        self.createdBy = createdBy
+        self.category = category
+        self.description = description
+        self.ingredientsJson = ingredientsJson
+        self.directions = directions
+        self.imgURL = imgURL
+        self.timestamp = timestamp
+    }
     
     init(id:String,name:String,createdBy:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String) {
         self.id = id
         self.name = name
+        self.createdBy = createdBy
         self.category = category
         self.description = description
         self.ingredientsJson = ingredientsJson
@@ -30,7 +47,7 @@ class Recipe {
         self.imgURL = imgURL
     }
     
-    init(name:String,createdBy:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String) {
+    init(name:String,createdBy:String,category:String,description:String,ingredientsJson: String,directions: String, imgURL:String, timestamp:Int64) {
         self.name = name
         self.category = category
         self.createdBy = createdBy
@@ -38,22 +55,26 @@ class Recipe {
         self.ingredientsJson = ingredientsJson
         self.directions = directions
         self.imgURL = imgURL
+        self.timestamp = timestamp
     }
     
-    init(json:[String:String]){
-        self.id = json["id"]!;
-        self.name = json["name"]!;
-        self.createdBy = json["createdBy"]!;
-        self.category = json["category"]!;
-        self.description = json["description"]!;
-        self.ingredientsJson = json["ingredientsJson"]!;
-        self.directions = json["directions"]!;
-        self.imgURL = json["imgURL"]!;
-
+    
+    init(json:[String:Any]){
+        self.id = json["id"]! as! String;
+        self.name = json["name"]! as! String;
+        self.createdBy = json["createdBy"]! as! String;
+        self.category = json["category"]! as! String;
+        self.description = json["description"]! as! String;
+        self.ingredientsJson = json["ingredientsJson"]! as! String;
+        self.directions = json["directions"]! as! String;
+        self.imgURL = json["imgURL"]! as! String;
+        let ts  = json["timestamp"] as! Timestamp;
+        self.timestamp = ts.seconds;
+        
     }
     
-    func toJson() -> [String:String] {
-        var json = [String:String]();
+    func toJson() -> [String:Any] {
+        var json = [String:Any]();
         json["id"] = id
         json["name"] = name
         json["createdBy"] = createdBy
@@ -62,6 +83,7 @@ class Recipe {
         json["ingredientsJson"] = ingredientsJson
         json["directions"] = directions
         json["imgURL"] = imgURL
+        json["timestamp"] = FieldValue.serverTimestamp()
         return json
     }
 }
